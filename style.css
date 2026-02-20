@@ -1,0 +1,291 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #2d3748;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+
+header .subtitle {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ===== Main Layout ===== */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #2b6cb0;
+  border-bottom: 2px solid #ebf8ff;
+  padding-bottom: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 1.2rem 0 0.6rem;
+  color: #4a5568;
+}
+
+/* ===== Forms ===== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select {
+  flex: 1 1 150px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #2d3748;
+  background: #f7fafc;
+  transition: border-color 0.2s;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #4299e1;
+  background: #fff;
+}
+
+button {
+  padding: 0.5rem 1.1rem;
+  background: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  background: #2b6cb0;
+}
+
+button.danger {
+  background: #e53e3e;
+}
+
+button.danger:hover {
+  background: #c53030;
+}
+
+button.small {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  background: #e53e3e;
+}
+
+button.small:hover {
+  background: #c53030;
+}
+
+/* ===== Roommate List ===== */
+#roommate-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+#roommate-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  color: #2b6cb0;
+}
+
+/* ===== Summary ===== */
+#summary-totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.summary-card {
+  flex: 1 1 140px;
+  background: #f7fafc;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.summary-card .label {
+  font-size: 0.8rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-card .value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.value.income { color: #276749; }
+.value.expense { color: #c53030; }
+.value.balance.positive { color: #276749; }
+.value.balance.negative { color: #c53030; }
+
+/* ===== Balances ===== */
+#balances {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.balance-row.owe {
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+}
+
+.balance-row.settle {
+  background: #f0fff4;
+  border: 1px solid #c6f6d5;
+  font-style: italic;
+  color: #276749;
+}
+
+.balance-row .amount {
+  font-weight: 700;
+}
+
+/* ===== Log Table ===== */
+.log-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+#log-table th {
+  background: #ebf8ff;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  color: #2b6cb0;
+  font-weight: 600;
+}
+
+#log-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#log-table tr:last-child td {
+  border-bottom: none;
+}
+
+#log-table tr:hover td {
+  background: #f7fafc;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.income {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.badge.expense {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #a0aec0;
+  padding: 1.5rem 0;
+  font-style: italic;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #a0aec0;
+  font-size: 0.85rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.8rem; }
+  form input, form select { flex: 1 1 100%; }
+  #log-table th:last-child, #log-table td:last-child { display: none; }
+}
