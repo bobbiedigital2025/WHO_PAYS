@@ -1,0 +1,228 @@
+:root {
+  color-scheme: light;
+  --bg: #fff8fb;
+  --bg-accent: #fff8d5;
+  --card: #ffffff;
+  --border: #f3cce5;
+  --text: #45233a;
+  --muted: #8f5a78;
+  --primary: #f9579d;
+  --primary-2: #f7c948;
+  --income: #1f9d6b;
+  --expense: #d9485f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", "Segoe UI", Tahoma, sans-serif;
+  background: radial-gradient(circle at top right, var(--bg-accent), var(--bg));
+  color: var(--text);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+  z-index: 1000;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #ffd6ea, #fff4b2);
+  border-bottom: 2px solid #ffb7dc;
+}
+
+.hero h1 { margin: 0; }
+.hero p { margin: 0.2rem 0; }
+.subtitle { color: var(--muted); font-size: 0.95rem; }
+
+.ribbon-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: #ffffffb0;
+  border: 1px solid #ffc8e4;
+  border-radius: 12px;
+  padding: 0.6rem;
+}
+
+.quick-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  background: #fff7cd;
+  border-bottom: 1px solid #f5d774;
+}
+
+.quick-nav a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #7a2f60;
+  border: 1px solid #ffc0df;
+  background: #ffeff8;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+}
+
+main {
+  max-width: 1150px;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 7px 16px #fbb4d633;
+}
+
+h2, h3 { margin-top: 0; }
+
+form label, .filters label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+input, select, textarea, button {
+  font: inherit;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: 2px solid #ffd1e8;
+}
+
+button {
+  background: linear-gradient(140deg, var(--primary), #ff7bb5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover { filter: brightness(1.05); }
+
+button.delete {
+  background: linear-gradient(130deg, #cc294d, #e6657b);
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.75rem;
+}
+
+.full { grid-column: 1 / -1; }
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.75rem;
+}
+
+.pill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.pill-list li {
+  background: #ffe5f2;
+  border: 1px solid #ffc4df;
+  color: #7b2d5b;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.kpi {
+  border: 1px solid #ffd3e7;
+  border-radius: 10px;
+  padding: 0.6rem;
+  background: linear-gradient(160deg, #fff8fd, #fffde7);
+}
+
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th, td {
+  border-bottom: 1px solid #ffe0ef;
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 0.92rem;
+}
+
+th { background: #fff6c9; }
+
+td.amount.income { color: var(--income); font-weight: 700; }
+td.amount.expense { color: var(--expense); font-weight: 700; }
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.file-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff5bb;
+  border: 1px solid #ffe374;
+  border-radius: 10px;
+  padding: 0.45rem 0.6rem;
+}
+
+.file-upload input { padding: 0; border: 0; }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #8a5f70;
+}
+
+
+#mcp-output {
+  width: 100%;
+  background: #fffdf0;
+}

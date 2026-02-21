@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: who-pays-app
+    ports:
+      - "4173:4173"
+    environment:
+      - NODE_ENV=production
+      - PORT=4173
+      - BODIGI_MCP_SERVER=${BODIGI_MCP_SERVER}
+      - BODIGI_MCP_API_KEY=${BODIGI_MCP_API_KEY}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:4173/health"]
+      interval: 30s
+      timeout: 8s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+
+  monitor:
+    build: .
+    container_name: who-pays-monitor
+    command: ["sh", "-c", "while true; do node ops/health-monitor.js; sleep 300; done"]
+    depends_on:
+      - app
+    environment:
+      - HEALTHCHECK_URL=http://app:4173/health
+      - ALERT_EMAIL_TO=admin@bodigicom.com
+      - ALERT_FROM=${ALERT_FROM:-who-pays-alerts@localhost}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - BODIGI_MCP_SERVER=${BODIGI_MCP_SERVER}
+      - BODIGI_MCP_API_KEY=${BODIGI_MCP_API_KEY}
+    restart: unless-stopped

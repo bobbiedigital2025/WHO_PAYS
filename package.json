@@ -1,0 +1,18 @@
+{
+  "name": "who-pays",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Household money tracker with hardened static hosting and health alerting",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint:js": "node --check app.js && node --check server.js && node --check ops/health-monitor.js && node --check sw.js",
+    "healthcheck": "node ops/health-monitor.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.1"
+  }
+}
